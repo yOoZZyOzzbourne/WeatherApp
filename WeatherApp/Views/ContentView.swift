@@ -17,7 +17,7 @@ struct ContentView: View {
         ZStack{
 
             BackgroundView()
-            Text("Does it work")
+           
             VStack(spacing: 15) {
                
                 if let location = locationManager.location {
