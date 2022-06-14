@@ -17,7 +17,7 @@ struct ContentView: View {
         ZStack{
 
             BackgroundView()
-           
+           Text("test")
         
             VStack(spacing: 15) {
                
