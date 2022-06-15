@@ -11,12 +11,13 @@ import CoreLocationUI
 struct WelcomeView: View {
     // MARK: - Properties
     @EnvironmentObject var locationManager: LocationManager
+    @Binding var Mode : Bool
     
     // MARK: - Body
     var body: some View {
         ZStack{
-            BackgroundView()
             
+            BackgroundView(Mode: $Mode)
             VStack {
                 
                 Text("Weather App")
@@ -43,9 +44,9 @@ struct WelcomeView: View {
     }
 
 
-// MARK: - Preview
-struct WelcomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        WelcomeView()
-    }
-}
+//// MARK: - Preview
+//struct WelcomeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        WelcomeView()
+//    }
+//}

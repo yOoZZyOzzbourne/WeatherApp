@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CityTextView: View{
     @ObservedObject var viewModel: CityTextViewModel
+    @Binding var Mode : Bool
     
     var body: some View{
         VStack{
@@ -19,7 +20,7 @@ struct CityTextView: View{
             .fontWeight(.light)
             .font(.subheadline)
             
-            Image(systemName: viewModel.imageName)
+            Image(systemName:Mode ? viewModel.imageName : "moon.stars.fill")
                 .renderingMode(.original)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -46,7 +47,7 @@ struct CityTextView: View{
 
 struct CityTextView_Previews: PreviewProvider {
     static var previews: some View {
-        CityTextView(viewModel: .init(weather: previewWeather, imageProvider: WeatherImageProvider()))
+        CityTextView(viewModel: .init(weather: previewWeather, imageProvider: WeatherImageProvider()),Mode: .constant(true))
             .background(.black)
     }
 }

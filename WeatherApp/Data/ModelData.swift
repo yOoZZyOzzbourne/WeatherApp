@@ -9,6 +9,8 @@ import Foundation
 
 var previewWeather: CurrentWeather = load("weatherData.json")
 
+
+
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
 
@@ -32,7 +34,3 @@ func load<T: Decodable>(_ filename: String) -> T {
 }
 
 
-struct WeatherImage{
-    
-    
-}
