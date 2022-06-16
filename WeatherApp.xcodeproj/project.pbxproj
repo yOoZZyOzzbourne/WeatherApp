@@ -28,6 +28,10 @@
 		F048B8CB28578AD300884A29 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F048B8CA28578AD300884A29 /* WelcomeView.swift */; };
 		F048B8CD2859328700884A29 /* DayAndNight.swift in Sources */ = {isa = PBXBuildFile; fileRef = F048B8CC2859328700884A29 /* DayAndNight.swift */; };
 		F048B8D0285A1F7200884A29 /* CategoryHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = F048B8CF285A1F7200884A29 /* CategoryHome.swift */; };
+		F048B8D2285A231300884A29 /* CategoryDays.swift in Sources */ = {isa = PBXBuildFile; fileRef = F048B8D1285A231300884A29 /* CategoryDays.swift */; };
+		F048B8D6285A310000884A29 /* ForecastDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F048B8D5285A310000884A29 /* ForecastDayRow.swift */; };
+		F048B8D8285A311000884A29 /* ForecastDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F048B8D7285A311000884A29 /* ForecastDay.swift */; };
+		F048B8DA285A66D600884A29 /* ForecastRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F048B8D9285A66D600884A29 /* ForecastRowModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +57,10 @@
 		F048B8CA28578AD300884A29 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		F048B8CC2859328700884A29 /* DayAndNight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayAndNight.swift; sourceTree = "<group>"; };
 		F048B8CF285A1F7200884A29 /* CategoryHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHome.swift; sourceTree = "<group>"; };
+		F048B8D1285A231300884A29 /* CategoryDays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDays.swift; sourceTree = "<group>"; };
+		F048B8D5285A310000884A29 /* ForecastDayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastDayRow.swift; sourceTree = "<group>"; };
+		F048B8D7285A311000884A29 /* ForecastDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastDay.swift; sourceTree = "<group>"; };
+		F048B8D9285A66D600884A29 /* ForecastRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastRowModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,12 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				F0055B632853D84200AE10CE /* ContentView.swift */,
-				F0055B702853D97300AE10CE /* CityTextView.swift */,
-				F0055B722853D99400AE10CE /* WeatherRowView.swift */,
-				F0055B742853DADF00AE10CE /* DayWeatherView.swift */,
-				F0055B802853FAF700AE10CE /* LoadingView.swift */,
 				F048B8CA28578AD300884A29 /* WelcomeView.swift */,
-				F0055B82285684B000AE10CE /* ViewModels */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -162,8 +165,41 @@
 			isa = PBXGroup;
 			children = (
 				F048B8CF285A1F7200884A29 /* CategoryHome.swift */,
+				F048B8D3285A26F000884A29 /* CategoryHomeViews */,
+				F048B8D1285A231300884A29 /* CategoryDays.swift */,
+				F048B8D4285A309800884A29 /* CategoryDaysViews */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		F048B8D3285A26F000884A29 /* CategoryHomeViews */ = {
+			isa = PBXGroup;
+			children = (
+				F0055B702853D97300AE10CE /* CityTextView.swift */,
+				F0055B722853D99400AE10CE /* WeatherRowView.swift */,
+				F0055B742853DADF00AE10CE /* DayWeatherView.swift */,
+				F0055B802853FAF700AE10CE /* LoadingView.swift */,
+				F0055B82285684B000AE10CE /* ViewModels */,
+			);
+			path = CategoryHomeViews;
+			sourceTree = "<group>";
+		};
+		F048B8D4285A309800884A29 /* CategoryDaysViews */ = {
+			isa = PBXGroup;
+			children = (
+				F048B8D5285A310000884A29 /* ForecastDayRow.swift */,
+				F048B8D7285A311000884A29 /* ForecastDay.swift */,
+				F048B8DB285A66DB00884A29 /* DaysViewModels */,
+			);
+			path = CategoryDaysViews;
+			sourceTree = "<group>";
+		};
+		F048B8DB285A66DB00884A29 /* DaysViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F048B8D9285A66D600884A29 /* ForecastRowModel.swift */,
+			);
+			path = DaysViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,10 +275,12 @@
 			files = (
 				F0055B84285684CD00AE10CE /* CityTextViewModel.swift in Sources */,
 				F0055B752853DADF00AE10CE /* DayWeatherView.swift in Sources */,
+				F048B8D2285A231300884A29 /* CategoryDays.swift in Sources */,
 				F048B8C92857732800884A29 /* LocationManager.swift in Sources */,
 				F048B8CB28578AD300884A29 /* WelcomeView.swift in Sources */,
 				F0055B8A285685EB00AE10CE /* CurrentWeather.swift in Sources */,
 				F0055B642853D84200AE10CE /* ContentView.swift in Sources */,
+				F048B8D8285A311000884A29 /* ForecastDay.swift in Sources */,
 				F0055B882856858E00AE10CE /* WeatherImageProvider.swift in Sources */,
 				F0055B622853D84200AE10CE /* WeatherAppApp.swift in Sources */,
 				F0055B7A2853E48400AE10CE /* WeatherManager.swift in Sources */,
@@ -252,6 +290,8 @@
 				F0055B8C2856860700AE10CE /* ForecastWeather.swift in Sources */,
 				F0055B712853D97300AE10CE /* CityTextView.swift in Sources */,
 				F0055B782853E43B00AE10CE /* ModelData.swift in Sources */,
+				F048B8DA285A66D600884A29 /* ForecastRowModel.swift in Sources */,
+				F048B8D6285A310000884A29 /* ForecastDayRow.swift in Sources */,
 				F0055B7C2853EFFB00AE10CE /* Extension.swift in Sources */,
 				F048B8CD2859328700884A29 /* DayAndNight.swift in Sources */,
 				F0055B812853FAF700AE10CE /* LoadingView.swift in Sources */,

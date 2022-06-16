@@ -8,62 +8,44 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @StateObject var locationManager = LocationManager()
-    var weatherManager = WeatherManager(apiClient: APIClient())
-    @State var weather: CurrentWeather?
-    @State var forecast: ForecastWeather?
-    @State var Mode = true// True - is -> DAY / False - is -> NIGHT
-  // @State var dayModel : DayAndNightModel?
-    
+    @State var Mode = true
+    @State private var selection: Tab = .home
+    enum Tab{
+        case home
+        case list
+    }
+//    init() {
+//        UITabBar.appearance().backgroundColor = Mode ? .white : .black
+//
+//    }
+    init() {
+        UITabBar.appearance().barTintColor = Mode ? UIColor(Color(.white)) : UIColor(Color(.black)) // custom color.
+       }
     
     var body: some View {
-        ZStack{
-            
-            BackgroundView(Mode: $Mode)
-            
-            TabView{
+       
+    
+        TabView(selection: $selection){
+            CategoryHome(Mode: $Mode)
+                .tabItem{
+                    Label("Home", systemImage: "house")
+                }
+               
+                .tag(Tab.home)
                 
-            }
-            VStack(spacing: 15) {
-                if let location = locationManager.location {
-                    if let weather = weather, let forecast = forecast  {
-                        CityTextView(viewModel: .init(weather: weather, imageProvider: WeatherImageProvider()),Mode: .constant(Mode))
-                        WeatherRowView(viewRowModel: .init(forecast: forecast, imageProvider: WeatherImageProvider()))
-                        Text("Dt= \(weather.dt) ")
-                        Text("Sunrise= \(weather.sys.sunrise) ")
-                        Text("Sunset= \(weather.sys.sunset)")
-                        
-                    } else {
-                        LoadingView()
-                            .task {
-                                do {
-                                    locationManager.requestLocation()
-                                    weather = try await
-                                    weatherManager.getCurrentWeather(latitude: location.latitude, longitude: location.longitude)
-                                    forecast = try await
-                                    weatherManager.getForecast(latitude: location.latitude, longitude: location.longitude)
-                                    
-                                    if let weather = weather {
-                                        Mode = isNight(dt: weather.dt, sunset: weather.sys.sunset, sunrise: weather.sys.sunrise)
-                                    }
-                                } catch {
-                                    print("Error getting weather: \(error)")
-                                }
-                                
-                            }
-                    }
+            
+            CategoryDays(Mode: $Mode)
+                .tabItem {
+                    Label("List", systemImage: "list.bullet")
                 }
-                else {
-                    LoadingView()
-                        .task {
-                            do{
-                                locationManager.requestLocation()
-                            }
-                        }
-                }
-            }
+                .tag(Tab.list)
+            
         }
+        .accentColor(Mode ? Color(UIColor.black) : Color(UIColor.white))
+        
+     
+       
+        
     }
 }
    //Třinec lat/long latitude: 49.67763, longitude: 18.67078
@@ -82,8 +64,9 @@ struct BackgroundView: View {
     var body: some View {
         LinearGradient(gradient: Gradient(colors: [Mode ? .blue: .black,  Mode ? Color("lightBlue") : .gray]),
                        startPoint: .topLeading, endPoint: .bottomTrailing)
-        .edgesIgnoringSafeArea(.all)
+        .edgesIgnoringSafeArea(.top)
     }
 }
+
 
 
