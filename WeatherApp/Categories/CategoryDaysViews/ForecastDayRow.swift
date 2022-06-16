@@ -24,7 +24,7 @@ struct ForecastDayRow: View {
             HStack(alignment: .top, spacing: 10){
      
                 ForEach(viewForecastRowModel.weatherInDay(dtT: String(day.dtTxT.prefix(10)))){ time in
-                        ForecastDay(time: String(time.dtTxt.prefix(4)), imageName: time.imageName, temperature: time.temperature)
+                        ForecastDay(time: String(time.dtTxt.prefix(5)), imageName: time.imageName, temperature: time.temperature)
                             }
                     
                         }

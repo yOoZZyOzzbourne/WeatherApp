@@ -16,7 +16,7 @@ struct ForecastRowModel: Identifiable {
 }
 
 struct WeatherInDayModel: Identifiable{
-    var id : String { day }
+    var id : String { dtTxt }
     let day : String
     let dtTxt : String
     let imageName: String
@@ -68,14 +68,14 @@ final class ForecastRowViewModel: ObservableObject {
         }()
         
         return forecast.list
-            .filter{ $0.dtTxt.contains(dtT) }
+            .filter{ $0.dtTxt.contains(dtT.suffix(5)) }
             .map{ time in
             
                     let date = Date(timeIntervalSince1970: Double(time.dt))
                     let dayName = dayNameFormatter.string(from: date)
                     let imageName = time.weather.first.map{ imageProvider.getImage(by: $0.id) } ?? "exclamationmark.triangle"
                     let temperature = Int(time.main.feelsLike)
-                let dtTxT = time.dtTxt.suffix(7)
+                let dtTxT = time.dtTxt.suffix(8)
                 
                 return WeatherInDayModel(day: dayName, dtTxt: String(dtTxT), imageName: imageName, temperature: temperature)
             }
