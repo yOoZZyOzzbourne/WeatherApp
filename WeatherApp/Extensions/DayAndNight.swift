@@ -16,3 +16,20 @@ func isNight(dt: Int, sunset: Int, sunrise: Int) ->Bool{
        return true
     }
 }
+
+func dtToHours(dt: Int) -> String{
+    
+    let date = Date(timeIntervalSince1970: TimeInterval(Int(dt)))
+    
+    let dateFormatter = DateFormatter()
+
+   
+    dateFormatter.dateFormat = "HH:mm"
+
+  
+    let time = dateFormatter.string(from: date)
+    
+    
+    return time
+}
+

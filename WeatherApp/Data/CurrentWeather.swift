@@ -53,6 +53,12 @@ struct CurrentWeather: Decodable {
     struct Sys: Decodable {
         var sunrise: Int
         var sunset: Int
+         }
     }
     
-}
+   
+                
+                
+
+
+

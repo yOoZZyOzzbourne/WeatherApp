@@ -58,5 +58,5 @@ struct APIClient: APIClientType {
 
 
 
-//https://api.openweathermap.org/data/2.5/forecast?lat=49.67763&lon=18.67078&appid=e4beb8856641ae18bf5c39e7832c1a67&units=metric
+//https://api.openweathermap.org/data/2.5/weather?lat=49.67763&lon=18.67078&appid=e4beb8856641ae18bf5c39e7832c1a67&units=metric
 

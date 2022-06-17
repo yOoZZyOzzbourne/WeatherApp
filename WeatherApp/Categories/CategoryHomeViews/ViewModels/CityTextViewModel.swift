@@ -33,12 +33,15 @@ final class CityTextViewModel: ObservableObject {
         "\(weather.main.tempMin.roundDouble)°"
     }
     
+    
     var imageName: String {
         guard let idName = weather.weather.first?.id else {
             assertionFailure("WeatherApiFail")
             return "exclamationmark.triangle"
         }
-        return imageProvider.getImage(by: idName)
-       
+        return imageProvider.getImage(by: idName, dt: "")
     }
 }
+
+
+

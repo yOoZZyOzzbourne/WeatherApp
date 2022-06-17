@@ -31,6 +31,7 @@
 		F048B8D6285A310000884A29 /* ForecastDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F048B8D5285A310000884A29 /* ForecastDayRow.swift */; };
 		F048B8D8285A311000884A29 /* ForecastDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F048B8D7285A311000884A29 /* ForecastDay.swift */; };
 		F048B8DA285A66D600884A29 /* ForecastRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F048B8D9285A66D600884A29 /* ForecastRowModel.swift */; };
+		F048B8DD285CBC6600884A29 /* SunriseSunset.swift in Sources */ = {isa = PBXBuildFile; fileRef = F048B8DC285CBC6500884A29 /* SunriseSunset.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		F048B8D5285A310000884A29 /* ForecastDayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastDayRow.swift; sourceTree = "<group>"; };
 		F048B8D7285A311000884A29 /* ForecastDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastDay.swift; sourceTree = "<group>"; };
 		F048B8D9285A66D600884A29 /* ForecastRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastRowModel.swift; sourceTree = "<group>"; };
+		F048B8DC285CBC6500884A29 /* SunriseSunset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunriseSunset.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 				F0055B722853D99400AE10CE /* WeatherRowView.swift */,
 				F0055B742853DADF00AE10CE /* DayWeatherView.swift */,
 				F0055B802853FAF700AE10CE /* LoadingView.swift */,
+				F048B8DC285CBC6500884A29 /* SunriseSunset.swift */,
 				F0055B82285684B000AE10CE /* ViewModels */,
 			);
 			path = CategoryHomeViews;
@@ -289,6 +292,7 @@
 				F048B8DA285A66D600884A29 /* ForecastRowModel.swift in Sources */,
 				F048B8D6285A310000884A29 /* ForecastDayRow.swift in Sources */,
 				F0055B7C2853EFFB00AE10CE /* Extension.swift in Sources */,
+				F048B8DD285CBC6600884A29 /* SunriseSunset.swift in Sources */,
 				F048B8CD2859328700884A29 /* DayAndNight.swift in Sources */,
 				F0055B812853FAF700AE10CE /* LoadingView.swift in Sources */,
 			);

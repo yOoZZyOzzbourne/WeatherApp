@@ -16,9 +16,9 @@ struct CityTextView: View{
             Text(viewModel.name)
                 .font(.system(size: 32, weight: .medium, design: .default))
             
-            Text("Today, \(Date().formatted(.dateTime.month().day().hour().minute()))")
-                .fontWeight(.light)
-                .font(.subheadline)
+        Text("Today, \(Date().formatted(.dateTime.month().day().hour().minute()))")
+            .fontWeight(.light)
+            .font(.subheadline)
             
             Image(systemName:Mode ? viewModel.imageName : "moon.stars.fill")
                 .renderingMode(.original)
@@ -39,7 +39,7 @@ struct CityTextView: View{
                 Image(systemName: "arrow.down")
             }
             .font(.system(size: 25, weight: .light))
-            .foregroundColor(.white)
+                .foregroundColor(.white)
         }
         .foregroundColor(.white)
     }
@@ -60,10 +60,10 @@ struct CityTextView_Previews: PreviewProvider {
 
 
 
-
-
-
-
-
-
+   
+    
+    
+    
+       
+  
 
