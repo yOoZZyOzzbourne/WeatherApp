@@ -15,7 +15,7 @@ struct ForecastDay: View {
     var body: some View {
         VStack(spacing: 8){
             Text(time)
-                .font(.system(size: 25, weight: .medium))
+                .font(.system(size: 20, weight: .medium))
                 .foregroundColor(.white)
             Image(systemName: imageName)
                 .renderingMode(.original)
@@ -26,7 +26,6 @@ struct ForecastDay: View {
                 .font(.system(size: 35, weight: .medium))
                 .foregroundColor(.white)
         }
-        
     }
 }
 

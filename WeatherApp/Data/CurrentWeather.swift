@@ -16,8 +16,6 @@ struct CurrentWeather: Decodable {
     var dt : Int
     var wind: WindResponse
     
-    
-    
     struct CoordinatesResponse: Decodable {
         var lon: Double
         var lat: Double

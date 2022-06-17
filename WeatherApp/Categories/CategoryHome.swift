@@ -12,9 +12,7 @@ struct CategoryHome: View {
     var weatherManager = WeatherManager(apiClient: APIClient())
     @State var weather: CurrentWeather?
     @State var forecast: ForecastWeather?
-    @Binding var Mode :Bool// True - is -> DAY / False - is -> NIGHT
-  // @State var dayModel : DayAndNightModel?
-    
+    @Binding var Mode :Bool
     
     var body: some View {
         ZStack{
@@ -26,10 +24,6 @@ struct CategoryHome: View {
                     if let weather = weather, let forecast = forecast  {
                         CityTextView(viewModel: .init(weather: weather, imageProvider: WeatherImageProvider()),Mode: .constant(Mode))
                         WeatherRowView(viewRowModel: .init(forecast: forecast, imageProvider: WeatherImageProvider()))
-//                        Text("Dt= \(weather.dt) ")
-//                        Text("Sunrise= \(weather.sys.sunrise) ")
-//                        Text("Sunset= \(weather.sys.sunset)")
-//                        
                     } else {
                         LoadingView()
                             .task {
@@ -46,7 +40,6 @@ struct CategoryHome: View {
                                 } catch {
                                     print("Error getting weather: \(error)")
                                 }
-                                
                             }
                     }
                 }
@@ -56,7 +49,7 @@ struct CategoryHome: View {
                             do{
                                 locationManager.requestLocation()
                             }
-                    }
+                        }
                 }
             }
         }

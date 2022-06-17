@@ -13,23 +13,25 @@ struct ForecastDayRow: View {
     
     var body: some View {
         VStack{
-
-        ForEach(viewForecastRowModel.daysInWeek()){ day in
-            HStack{
-            Text("\(day.day)")
-                .foregroundColor(.white)
-                .font(.title)
             
-        ScrollView(.horizontal, showsIndicators: false){
-            HStack(alignment: .top, spacing: 10){
-     
-                ForEach(viewForecastRowModel.weatherInDay(dtT: String(day.dtTxT.prefix(10)))){ time in
-                        ForecastDay(time: String(time.dtTxt.prefix(5)), imageName: time.imageName, temperature: time.temperature)
+            ForEach(viewForecastRowModel.daysInWeek()){ day in
+                HStack{
+                    Text("\(day.day)")
+                        .frame(width: 65, height: 45, alignment: .leading)
+                        .font(.title)
+                        .scaledToFit()
+                        .foregroundColor(.white)
+                        .padding(.leading, -15)
+                     
+                    ScrollView(.horizontal, showsIndicators: false){
+                        HStack(alignment: .top, spacing: 20){
+                            
+                            ForEach(viewForecastRowModel.weatherInDay(dtT: String(day.dtTxT.prefix(10)))){ time in
+                                ForecastDay(time: String(time.dtTxt.prefix(5)), imageName: time.imageName, temperature: time.temperature)
                             }
-                    
                         }
                     }
-                    .padding(.leading, 20)
+                    .padding(.leading, 10)
                 }
                 .padding()
             }

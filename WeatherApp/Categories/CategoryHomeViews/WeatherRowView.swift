@@ -10,18 +10,16 @@ import SwiftUI
 
 struct WeatherRowView: View {
     @ObservedObject var viewRowModel: WeatherRowViewModel
-
+    
     var body: some View {
         HStack(spacing: 10) {
             ForEach(viewRowModel.daysInWeek()) { day in
                 
-                    DayWeatherView(
-                        dayOfWeek: day.day,
-                        imageName: day.imageName,
-                        temperature: day.temperature
-                    )
-                
-                
+                DayWeatherView(
+                    dayOfWeek: day.day,
+                    imageName: day.imageName,
+                    temperature: day.temperature
+                ) 
             }
         }
     }

@@ -15,10 +15,6 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     @Published var location: CLLocationCoordinate2D?
     @Published var isLoading = false
-    
-//    func requestL(){
-//       manager.requestWhenInUseAuthorization()
-//    }
 
     override init() {
         super.init()
@@ -30,8 +26,6 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         
        manager.requestAlwaysAuthorization()
        manager.startUpdatingLocation()
-       // manager.requestLocation()
-     
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

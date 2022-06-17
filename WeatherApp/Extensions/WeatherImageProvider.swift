@@ -35,5 +35,4 @@ struct WeatherImageProvider {
             return "cloud"
         }
     }
-    
 }

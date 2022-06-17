@@ -13,23 +13,17 @@ struct CategoryDays: View {
     @State var forecast: ForecastWeather?
     var weatherManager = WeatherManager(apiClient: APIClient())
     
-    
     var body: some View {
         ZStack{
             BackgroundView(Mode: $Mode)
-         
+            
             ScrollView{
                 VStack(spacing: 15) {
                     if let location = locationManager.location {
-                       if let forecast = forecast  {
-                        
-                               ForecastDayRow(viewForecastRowModel: .init(forecast: forecast, imageProvider: WeatherImageProvider()), Mode: $Mode)
-                                   .padding()
-                           
-    //                        Text("Dt= \(weather.dt) ")
-    //                        Text("Sunrise= \(weather.sys.sunrise) ")
-    //                        Text("Sunset= \(weather.sys.sunset)")
-    //
+                        if let forecast = forecast  {
+                            
+                            ForecastDayRow(viewForecastRowModel: .init(forecast: forecast, imageProvider: WeatherImageProvider()), Mode: $Mode)
+                                .padding()
                         }else {
                             LoadingView()
                                 .task {
@@ -50,7 +44,7 @@ struct CategoryDays: View {
                                 do{
                                     locationManager.requestLocation()
                                 }
-                        }
+                            }
                     }
                 }
                 .padding(.top, 30)

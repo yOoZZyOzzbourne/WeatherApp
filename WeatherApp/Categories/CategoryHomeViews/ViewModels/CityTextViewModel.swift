@@ -17,7 +17,6 @@ final class CityTextViewModel: ObservableObject {
         self.imageProvider = imageProvider
     }
     
-    
     var name: String {
         weather.name
     }
