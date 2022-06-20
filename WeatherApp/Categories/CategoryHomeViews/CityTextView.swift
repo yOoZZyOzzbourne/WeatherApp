@@ -9,17 +9,18 @@ import SwiftUI
 
 struct CityTextView: View{
     @ObservedObject var viewModel: CityTextViewModel
+    @Binding var Mode : Bool
     
     var body: some View{
         VStack{
             Text(viewModel.name)
                 .font(.system(size: 32, weight: .medium, design: .default))
             
-        Text("Today, \(Date().formatted(.dateTime.month().day().hour().minute()))")
-            .fontWeight(.light)
-            .font(.subheadline)
+            Text("Today, \(Date().formatted(.dateTime.month().day().hour().minute()))")
+                .fontWeight(.light)
+                .font(.subheadline)
             
-            Image(systemName: viewModel.imageName)
+            Image(systemName:Mode ? viewModel.imageName : "moon.stars.fill")
                 .renderingMode(.original)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -38,7 +39,7 @@ struct CityTextView: View{
                 Image(systemName: "arrow.down")
             }
             .font(.system(size: 25, weight: .light))
-                .foregroundColor(.white)
+            .foregroundColor(.white)
         }
         .foregroundColor(.white)
     }
@@ -46,7 +47,7 @@ struct CityTextView: View{
 
 struct CityTextView_Previews: PreviewProvider {
     static var previews: some View {
-        CityTextView(viewModel: .init(weather: previewWeather, imageProvider: WeatherImageProvider()))
+        CityTextView(viewModel: .init(weather: previewWeather, imageProvider: WeatherImageProvider()),Mode: .constant(true))
             .background(.black)
     }
 }
@@ -59,10 +60,10 @@ struct CityTextView_Previews: PreviewProvider {
 
 
 
-   
-    
-    
-    
-       
-  
+
+
+
+
+
+
 

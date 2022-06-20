@@ -12,6 +12,8 @@ struct CurrentWeather: Decodable {
     var weather: [WeatherResponse]
     var main: MainResponse
     var name: String
+    var sys : Sys
+    var dt : Int
     var wind: WindResponse
     
     struct CoordinatesResponse: Decodable {
@@ -48,4 +50,9 @@ struct CurrentWeather: Decodable {
         var speed: Double
         var deg: Double
     }
+    struct Sys: Decodable {
+        var sunrise: Int
+        var sunset: Int
+    }
+    
 }

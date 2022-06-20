@@ -35,14 +35,10 @@ struct WeatherManager {
     }
 }
 
-//https://api.openweathermap.org/data/2.5/forecast?lat=49.67763&lon=18.67078&appid=e4beb8856641ae18bf5c39e7832c1a67&units=metric
-
 struct Constants {
     static let baseUrl = "https://api.openweathermap.org/data/2.5"
     static let appId = "e4beb8856641ae18bf5c39e7832c1a67"
 }
-
-
 
 protocol APIClientType {
     func request<T: Decodable>(url: URL) async throws -> T
@@ -62,5 +58,5 @@ struct APIClient: APIClientType {
 
 
 
-
+//https://api.openweathermap.org/data/2.5/forecast?lat=49.67763&lon=18.67078&appid=e4beb8856641ae18bf5c39e7832c1a67&units=metric
 

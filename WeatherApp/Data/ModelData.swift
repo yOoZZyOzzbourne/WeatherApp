@@ -32,7 +32,3 @@ func load<T: Decodable>(_ filename: String) -> T {
 }
 
 
-struct WeatherImage{
-    
-    
-}

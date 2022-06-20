@@ -8,71 +8,51 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var locationManager = LocationManager()
-    var weatherManager = WeatherManager(apiClient: APIClient())
-    @State var weather: CurrentWeather?
-    @State var forecast: ForecastWeather?
-   
+    @State var Mode = true // True - is -> DAY / False - is -> NIGHT
+    @State private var selection: Tab = .home
+    
+    enum Tab{
+        case home
+        case list
+    }
+    
     var body: some View {
-        ZStack{
-
-            BackgroundView()
-           Text("test")
-            VStack(spacing: 15) {
-               
-                if let location = locationManager.location {
-                if let weather = weather, let forecast = forecast  {
-                    CityTextView(viewModel: .init(weather: weather, imageProvider: WeatherImageProvider()))
-                    WeatherRowView(viewRowModel: .init(forecast: forecast, imageProvider: WeatherImageProvider()))
-                } else {
-                    LoadingView()
-                        .task {
-                            do {
-                                locationManager.requestLocation()
-                                weather = try await
-                                weatherManager.getCurrentWeather(latitude: location.latitude, longitude: location.longitude)
-                                forecast = try await
-                                weatherManager.getForecast(latitude: location.latitude, longitude: location.longitude)
-                                
-                            } catch {
-                                print("Error getting weather: \(error)")
-                            }
-                    }
+    
+        TabView(selection: $selection){
+            CategoryHome(Mode: $Mode)
+                .tabItem{
+                    Label("Home", systemImage: "house")
                 }
-              }
-                else {
-            //if locationManager.isLoading {
-                       LoadingView()
-                           .task {
-                               do{
-                                   locationManager.requestLocation()
-                                   
-                               }
-                  //         }
-                   }
-//                    //else {
-//                        WelcomeView()
-//                          .environmentObject(locationManager)
-//                   }
-            }
+                .tag(Tab.home)
+
+            CategoryDays(Mode: $Mode)
+                .tabItem {
+                    Label("List", systemImage: "list.bullet")
+                }
+                .tag(Tab.list)
+        }
+        .tabViewStyle(.page)
+        .edgesIgnoringSafeArea(.top)
     }
 }
-}
-}
-   //Třinec lat/long latitude: 49.67763, longitude: 18.67078
-
+  
 struct ContentView_Previews: PreviewProvider {
+    
     static var previews: some View {
         ContentView()
     }
 }
 
-
 struct BackgroundView: View {
+    @Binding var Mode : Bool
     
     var body: some View {
-        LinearGradient(gradient: Gradient(colors: [ .blue, Color("lightBlue")]),
+        LinearGradient(gradient:Gradient(colors: [Mode ? .blue: .black,  Mode ? Color("lightBlue") : .gray]),
                        startPoint: .topLeading, endPoint: .bottomTrailing)
-        .edgesIgnoringSafeArea(.all)
+        .edgesIgnoringSafeArea(.top)
     }
 }
+
+
+//Třinec lat/long latitude: 49.67763, longitude: 18.67078
+
