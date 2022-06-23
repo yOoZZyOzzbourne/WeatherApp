@@ -14,11 +14,18 @@ struct ContentView: View {
     enum Tab{
         case home
         case list
+        case otherLocation
     }
     
     var body: some View {
     
         TabView(selection: $selection){
+        
+            CategoryCities(Mode: $Mode)
+                .tabItem{
+                    Label("Cities", systemImage: "location.fill")
+                }
+            
             CategoryHome(Mode: $Mode)
                 .tabItem{
                     Label("Home", systemImage: "house")
@@ -30,6 +37,9 @@ struct ContentView: View {
                     Label("List", systemImage: "list.bullet")
                 }
                 .tag(Tab.list)
+            
+           
+            
         }
         .tabViewStyle(.page)
         .edgesIgnoringSafeArea(.top)
@@ -49,7 +59,7 @@ struct BackgroundView: View {
     @Binding var Mode : Bool
     
     var body: some View {
-        LinearGradient(gradient:Gradient(colors: [Mode ? .blue: .black,  Mode ? Color("lightBlue") : .gray]),
+        LinearGradient(gradient:Gradient(colors: [Mode ? .blue : .black,  Mode ? Color(red: 0.143, green: 0.150, blue: 0.250) : .gray]),
                        startPoint: .topLeading, endPoint: .bottomTrailing)
         .edgesIgnoringSafeArea(.top)
     }
