@@ -15,13 +15,14 @@ struct ContentView: View {
         case home
         case list
         case otherLocation
+        case graphs
     }
     
     var body: some View {
     
         TabView(selection: $selection){
         
-            CategoryCities(Mode: $Mode)
+            CategoryCities(viewModel: .init())
                 .tabItem{
                     Label("Cities", systemImage: "location.fill")
                 }
@@ -37,6 +38,11 @@ struct ContentView: View {
                     Label("List", systemImage: "list.bullet")
                 }
                 .tag(Tab.list)
+            
+            CategoryGraphs()
+                .tabItem{
+                    Label("Graphs", systemImage: "list.bullet")
+                }
             
            
             

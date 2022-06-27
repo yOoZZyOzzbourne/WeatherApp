@@ -11,7 +11,7 @@ struct CategoryCities: View {
     @Binding var Mode : Bool
 
         var body: some View {
-           CityDay(Mode: $Mode)
+            Text("")
         }
 }
 
