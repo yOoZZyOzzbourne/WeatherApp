@@ -58,10 +58,10 @@ final class ForecastRowViewModel: ObservableObject {
         return forecast.list
             .filter{ $0.dtTxt.contains(dtT.suffix(5)) }
             .map{ time in
-            
-                    let imageName = time.weather.first.map{ imageProvider.getImage(by: $0.id) } ?? "exclamationmark.triangle"
-                    let temperature = Int(time.main.feelsLike)
                     let dtTxT = time.dtTxt.suffix(8)
+                let imageName = time.weather.first.map{ imageProvider.getImage(by: $0.id, dt: String(dtTxT)) } ?? "exclamationmark.triangle"
+                    let temperature = Int(time.main.feelsLike)
+                  
                 
                 return WeatherInDayModel(dtTxt: String(dtTxT), imageName: imageName, temperature: temperature)
             }

@@ -12,7 +12,7 @@ struct WeatherRowView: View {
     @ObservedObject var viewRowModel: WeatherRowViewModel
     
     var body: some View {
-        HStack(spacing: 10) {
+        HStack(spacing: 15) {
             ForEach(viewRowModel.daysInWeek()) { day in
                 
                 DayWeatherView(

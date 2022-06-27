@@ -13,3 +13,9 @@ extension Double {
         String(format: "%.0f", self)
     }
 }
+
+extension UIApplication {
+     func dismissKeyboard() {
+         sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+     }
+ }

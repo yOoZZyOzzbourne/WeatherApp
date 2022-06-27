@@ -21,7 +21,7 @@ struct DayWeatherView: View {
                 .renderingMode(.original)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 55, height: 55)
+                .frame(width: 65, height: 65)
             Text("\(temperature)°")
                 .font(.system(size: 35, weight: .medium))
                 .foregroundColor(.white)

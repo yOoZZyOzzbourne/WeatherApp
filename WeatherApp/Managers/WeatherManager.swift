@@ -12,6 +12,7 @@ enum WeatherManagerError: Error {
     case badUrl
 }
 
+
 struct WeatherManager {
     let apiClient: APIClientType
     
@@ -58,5 +59,27 @@ struct APIClient: APIClientType {
 
 
 
-//https://api.openweathermap.org/data/2.5/forecast?lat=49.67763&lon=18.67078&appid=e4beb8856641ae18bf5c39e7832c1a67&units=metric
+//enum PositionManagerError: Error{
+//    case badUrl
+//}
+//
+//struct PositionManager {
+//    let apiClient: APIClientType
+//    private let BASE_URL = "http://api.positionstack.com/v1/forward"
+//    private let API_KEY = "8d1705695223925a00f73f3eb4f31373"
+//
+//    // MARK: - Request weather to Open Weather
+//    func getPosition(latitude: CLLocationDegrees, longitude: CLLocationDegrees) async throws -> CurrentWeather {
+//        guard let url = URL(string: "\(Constants.baseUrl)/weather?lat=\(latitude)&lon=\(longitude)&appid=\(Constants.appId)&units=metric")
+//        else {
+//            throw PositionManagerError.badUrl
+//        }
+//
+//        return try await apiClient.request(url: url)
+//    }
+//
+//}
+
+
+//https://api.openweathermap.org/data/2.5/weather?lat=49.67763&lon=18.67078&appid=e4beb8856641ae18bf5c39e7832c1a67&units=metric
 
